@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
+<?import org.fxmisc.richtext.StyleClassedTextArea?>
+<?import javafx.scene.image.ImageView?>
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/17.0.12" fx:controller="com.example.demo.HelloController">
+    <top>
+        <VBox>
+            <StackPane alignment="CENTER">
+                <ImageView fx:id="logoImageView" fitHeight="150" fitWidth="150" />
+            </StackPane>
+
+            <MenuBar>
+                <menus>
+                    <Menu text="Dosya">
+                        <items>
+                            <MenuItem text="Dosya Aç (CTRL+O)" onAction="#onOpenFileMenuItemClick" />
+                            <MenuItem text="Dosya Kaydet (CTRL+S)" onAction="#onSaveFileMenuItemClick" />
+                            <MenuItem text="Dosya Farklı Kaydet (CTRL+SHIFT+S)" onAction="#onSaveAsFileMenuItemClick" />
+                            <MenuItem text="Dosya Kapat (CTRL+W)" onAction="#onCloseFileMenuItemClick" />
+                            <MenuItem text="Çıkış (CTRL+Q)" onAction="#onExitMenuItemClick" />
+                        </items>
+                    </Menu>
+                    <Menu text="Yardım">
+                        <items>
+                            <MenuItem text="Hakkında" onAction="#onAboutMenuItemClick" />
+                        </items>
+                    </Menu>
+                </menus>
+            </MenuBar>
+
+            <ToolBar>
+                <ComboBox fx:id="fontFamilyComboBox" onAction="#onFontFamilyChange">
+                    <items>
+                        <FXCollections fx:factory="observableArrayList">
+                            <String fx:value="Arial" />
+                            <String fx:value="Verdana" />
+                            <String fx:value="Tahoma" />
+                            <String fx:value="Courier New" />
+                        </FXCollections>
+                    </items>
+                </ComboBox>
+                <ComboBox fx:id="fontSizeComboBox" onAction="#onFontSizeChange">
+                    <items>
+                        <FXCollections fx:factory="observableArrayList">
+                            <String fx:value="12" />
+                            <String fx:value="14" />
+                            <String fx:value="16" />
+                            <String fx:value="18" />
+                            <String fx:value="20" />
+                        </FXCollections>
+                    </items>
+                </ComboBox>
+
+                <ComboBox fx:id="textColorComboBox" onAction="#onTextColorChange">
+                    <items>
+                        <FXCollections fx:factory="observableArrayList">
+                            <String fx:value="Red" />
+                            <String fx:value="Blue" />
+                            <String fx:value="Green" />
+                            <String fx:value="Black" />
+                        </FXCollections>
+                    </items>
+                </ComboBox>
+
+                <ComboBox fx:id="backgroundColorComboBox" onAction="#onBackgroundColorChange">
+                    <items>
+                        <FXCollections fx:factory="observableArrayList">
+                            <String fx:value="Light Gray" />
+                            <String fx:value="Light Yellow" />
+                            <String fx:value="Light Blue" />
+                            <String fx:value="White" />
+                        </FXCollections>
+                    </items>
+                </ComboBox>
+
+                <Button text="N" onAction="#onNormalButtonClick" />
+                <Button text="B" onAction="#onBoldButtonClick" />
+                <Button text="I" onAction="#onItalicButtonClick" />
+                <Button text="U" onAction="#onUnderlineButtonClick" />
+
+                <Button fx:id="alignLeftButton" onAction="#onAlignLeft">
+                    <graphic>
+                        <ImageView fitWidth="16" fitHeight="16" />
+                    </graphic>
+                </Button>
+
+                <Button fx:id="alignCenterButton" onAction="#onAlignCenter">
+                    <graphic>
+                        <ImageView fitWidth="16" fitHeight="16" />
+                    </graphic>
+                </Button>
+
+                <Button fx:id="alignRightButton" onAction="#onAlignRight">
+                    <graphic>
+                        <ImageView fitWidth="16" fitHeight="16" />
+                    </graphic>
+                </Button>
+
+                <Button text="Kopyala" onAction="#onCopyButtonClick" />
+                <Button text="Yapıştır" onAction="#onPasteButtonClick" />
+            </ToolBar>
+        </VBox>
+    </top>
+
+    <center>
+        <StyleClassedTextArea fx:id="styledTextArea" />
+    </center>
+</BorderPane>
